@@ -1,0 +1,50 @@
+package edu.kh.jdbc1;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class jdbc2 {
+
+	public static void main(String[] args) {
+		
+		// 1단계 : JDBC 객체 참조변수 생성
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		Scanner sc = new Scanner(System.in);
+		
+		try {
+			
+			// 2단계 : 참조변수에 알맞은 객체 대입
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			String type = "jdbc:oracle:thin:@"; // JDBC 드라이버 종류
+			String ip = "localhost"; // DB 서버 컴퓨터 IP
+			String port = ":1521"; // 포트번호
+			String sid = ":XE"; // DB 이름
+			String user = "kh_peb"; // 사용자계정
+			String pw = "kh1234"; // 비밀번호
+			
+			conn = DriverManager.getConnection(type+ip+port+sid, user, pw);
+			
+			System.out.println("<입력 받은 급여보다 많이 받는(초과) 직원만 조회>");
+			System.out.print("급여 입력 : ");
+			int input = sc.nextInt(); // 2000000
+			
+			String sql = "SELECT EMP_ID, EMP_NAME, SALARY FROM EMPLOYEE WHERE SALARY > " + input;
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			
+		}
+		
+	}
+}

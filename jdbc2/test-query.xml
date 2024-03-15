@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>test-query.xml file!!!</comment>
+
+	<entry key="insert">
+		INSERT INTO TB_TEST
+		VALUES(?, ?, ?)
+	</entry>
+	
+	<entry key="update">
+		UPDATE TB_TEST SET
+		TEST_TITLE = ?,
+		TEST_CONTENT = ?
+		WHERE TEST_NO = ?
+	</entry>
+	
+	<entry key="delete">
+		DELETE FROM TB_TEST
+		WHERE TEST_NO = ?
+	</entry>
+</properties>

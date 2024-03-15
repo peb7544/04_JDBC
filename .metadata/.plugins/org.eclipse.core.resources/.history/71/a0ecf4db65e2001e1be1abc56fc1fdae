@@ -1,0 +1,13 @@
+package edu.kh.emp.model.dao;
+
+import java.sql.Statement;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class EmployeeDAO {
+
+	// JDBC 객체 참조변수 선언
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+}

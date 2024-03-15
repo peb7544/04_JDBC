@@ -1,0 +1,15 @@
+package edu.kh.emp.view;
+
+import java.util.Scanner;
+
+// 화면용 클래스
+public class EmployeeView {
+	
+	private Scanner sc = new Scanner(System.in);
+
+	public void displayMenu() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

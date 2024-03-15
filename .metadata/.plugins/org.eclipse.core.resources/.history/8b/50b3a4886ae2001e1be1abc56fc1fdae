@@ -1,0 +1,55 @@
+package edu.kh.emp.model.dao;
+
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
+
+import edu.kh.emp.model.vo.Employee;
+
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class EmployeeDAO {
+
+	// JDBC 객체 참조변수 선언
+	private Statement stmt;
+	private PreparedStatement pstmt;
+	private ResultSet rs;
+	
+	private Properties prop;
+	
+	public EmployeeDAO() {
+		try {
+			
+			prop = new Properties();
+			prop.loadFromXML(new FileInputStream("query.xml"));
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public List<Employee> selectAll(Connection conn) throws Exception {
+		
+		// 결과 저장용 변수 선언
+		List<Employee> list = new ArrayList<Employee>();
+		
+		try {
+			
+			String sql = prop.getProperty("selectAll");
+			
+			// Statement 객체 생성
+			stmt = conn.createStatement();
+			
+		} finally {
+			
+		}
+		
+		return list;
+	}
+	
+	
+}
