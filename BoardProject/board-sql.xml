@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>board-sql.xml file!!</comment>
+
+	<entry key="selectAllBoard">
+		SELECT 
+			 BOARD_NO
+			,BOARD_TITLE 
+			,MEMBER_NM
+			,CREATE_DT 
+			,READ_COUNT 
+			,(SELECT COUNT(*) 
+				FROM "COMMENT" SUB 
+				WHERE MAIN.BOARD_NO = SUB.BOARD_NO 
+				AND DELETE_FL = 'N') COMMENT_COUNT
+		FROM BOARD MAIN
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE DELETE_FL = 'N'
+		ORDER BY BOARD_NO DESC
+	</entry>
+	
+	<entry key="selectBoard">
+		SELECT 
+			 BOARD_NO
+			,BOARD_TITLE 
+			,BOARD_CONTENT
+			,MEMBER_NO
+			,MEMBER_NM
+			,READ_COUNT 
+			,CREATE_DT 
+		FROM BOARD MAIN
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE DELETE_FL = 'N'
+		AND BOARD_NO = ?
+	</entry>
+	
+	<entry key="updateReadCount">
+		UPDATE "BOARD" SET
+		READ_COUNT = READ_COUNT + 1
+		WHERE BOARD_NO = ?
+	</entry>
+	
+</properties>

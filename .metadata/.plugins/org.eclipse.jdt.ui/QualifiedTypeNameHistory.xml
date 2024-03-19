@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="edu.kh.emp.view.EmployeeView"/>
-    <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="edu.kh.emp.model.service.EmployeeService"/>
-    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
     <fullyQualifiedTypeName name="edu.kh.emp.model.dao.EmployeeDAO"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="edu.kh.emp.common.JDBCTemplate"/>
+    <fullyQualifiedTypeName name="oracle.jdbc.internal.StateSignatures"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="edu.kh.emp.model.vo.Employee"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.service.MainService"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.dao.MainDao"/>
+    <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.io.Closeable"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.main.view.MainView"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.service.MemberService"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.dao.MemberDao"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.dao.MemberDAO"/>
     <fullyQualifiedTypeName name="java.beans.Statement"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
-    <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-    <fullyQualifiedTypeName name="edu.kh.emp.common.JDBCTemplate"/>
+    <fullyQualifiedTypeName name="java.util.InputMismatchException"/>
+    <fullyQualifiedTypeName name="java.lang.Boolean"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.view.MemberView"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="oracle.jdbc.internal.StateSignatures"/>
-    <fullyQualifiedTypeName name="java.util.Map"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
-    <fullyQualifiedTypeName name="edu.kh.emp.model.vo.Employee"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.member.model.dto.Member"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.common.JDBCTemplate"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="edu.kh.jdbc.common.Session"/>
 </qualifiedTypeNameHistroy>
