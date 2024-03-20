@@ -60,7 +60,7 @@ public class BoardDAO {
 				String memberName = rs.getString("MEMBER_NM");
 				String createDate = rs.getString("CREATE_DT");
 				int readCount = rs.getInt("READ_COUNT");
-				int commentCount = rs.getInt("READ_COUNT");
+				int commentCount = rs.getInt("COMMENT_COUNT");
 				
 				Board board = new Board();
 				
@@ -147,6 +147,117 @@ public class BoardDAO {
 		} finally {
 			
 			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 게시글 수정 DAO
+	 * @param conn
+	 * @param boardTitle
+	 * @param boardNo
+	 * @param boardContent
+	 * @return result
+	 */
+	public int updateBoard(Connection conn, String boardTitle, int boardNo, String boardContent) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateBoard");
+			
+			// SQL 수행 후 결과 반환받기
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle);
+			pstmt.setString(2, boardContent);
+			pstmt.setInt(3, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	/** 다음 게시글 번호 조회 SQL 수행 DAO
+	 * @param conn 
+	 * @return
+	 */
+	public int nextBoardNo(Connection conn) throws Exception {
+		
+		int boardNo = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("nextBoardNo");
+			
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) boardNo = rs.getInt(1);
+			
+		} finally {
+			
+			close(rs);
+			close(stmt);
+			
+		}
+		
+		return boardNo;
+	}
+
+	public int insertBoard(Connection conn, int boardNo, String boardTitle, String boardContent, int memberNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("insertBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			pstmt.setString(2, boardTitle);
+			pstmt.setString(3, boardContent);
+			pstmt.setInt(4, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
+	/** 게시글 삭제
+	 * @param conn
+	 * @param boardNo
+	 * @return
+	 */
+	public int deleteBoard(Connection conn, int boardNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("deleteBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			
+			close(pstmt);
+			
 		}
 		
 		return result;

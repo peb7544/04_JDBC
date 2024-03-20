@@ -2,4 +2,51 @@
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
 <comment>comment-sql.xml file!!</comment>
+
+	<!-- 댓글목록 -->
+	<entry key="selectCommentList">
+		SELECT 
+			 COMMENT_NO 
+			,COMMENT_CONTENT 
+			,MEMBER_NO 
+			,MEMBER_NM
+			,CREATE_DT 
+		FROM "COMMENT"
+		JOIN "MEMBER" USING(MEMBER_NO)
+		WHERE DELETE_FL = 'N' 
+		AND BOARD_NO = ?
+		ORDER BY COMMENT_NO
+	</entry>
+	
+	<!-- 댓글등록 -->
+	<entry key="insertComment">
+		INSERT INTO "COMMENT"
+		VALUES(SEQ_COMMENT_NO.NEXTVAL, ?, DEFAULT, DEFAULT,
+				?, ?)
+	</entry>
+	
+	<!-- 댓글확인 -->
+	<entry key="checkCommentNo">
+		SELECT 
+			COUNT(*)
+		FROM "COMMENT"
+		WHERE COMMENT_NO = ?
+		AND MEMBER_NO = ?
+		AND BOARD_NO = ?
+	</entry>
+	
+	<!-- 댓글수정 -->
+	<entry key="updateComment">
+		UPDATE "COMMENT" SET
+		COMMENT_CONTENT = ?
+		WHERE COMMENT_NO = ?
+	</entry>
+	
+	<!-- 댓글수정 -->
+	<entry key="deleteComment">
+		UPDATE "COMMENT" SET
+		DELETE_FL = 'Y'
+		WHERE COMMENT_NO = ?
+	</entry>
+	
 </properties>
